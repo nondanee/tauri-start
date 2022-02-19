@@ -147,7 +147,7 @@ const player = () => ({
             const start = formatHslColor(h, s, l + 0.1)
             const end = formatHslColor(h, s, l - 0.2)
 
-            this.background = `linear-gradient(165deg, ${start}, ${start} 60%, ${end})`
+            this.background = `linear-gradient(170deg, ${start}, ${start} 60%, ${end})`
         })
 
         this.$watch('random', (value) => {

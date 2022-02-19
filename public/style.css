@@ -77,6 +77,10 @@ img:not([src]) {
   flex-direction: column;
 }
 
+.block .mask {
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2) 80%, rgba(0,0,0,0.5));
+}
+
 .block .bottom {
   position: relative;
   margin-top: auto;
