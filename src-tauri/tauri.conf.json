@@ -55,15 +55,19 @@
         "all": true,
         "request": true,
         "scope": ["https://music.163.com/*"]
+      },
+      "window": {
+        "startDragging": true
       }
     },
     "windows": [
       {
         "title": "Groove Music Concept",
-        "width": 800,
-        "height": 600,
-        "resizable": true,
-        "fullscreen": false
+        "width": 286,
+        "height": 380,
+        "resizable": false,
+        "fullscreen": false,
+        "decorations": false
       }
     ],
     "security": {
