@@ -35,19 +35,24 @@
   </svg>
 
   <div class="screen" x-data="player">
-    <div class="cover">
-      <img :src="info.cover">
-      <div class="song">
-        <div class="name" x-text="info.name"></div>
-        <div class="extra" x-text="info.extra"></div>
-      </div>
-      <div class="time">
-        <div class="current" x-text="formatDuration(current)"></div>
-        <div class="total" x-text="formatDuration(total)"></div>
-      </div>
-      <div class="progress">
-        <div class="filler"></div>
-        <div class="cursor"></div>
+    <div class="top">
+      <div class="block">
+        <svg width="1000" height="1000" />
+        <div class="fill">
+          <img :src="info.cover">
+          <div class="song">
+            <div class="name" x-text="info.name"></div>
+            <div class="extra" x-text="info.extra"></div>
+          </div>
+          <div class="time">
+            <div class="current" x-text="formatDuration(current)"></div>
+            <div class="total" x-text="formatDuration(total)"></div>
+          </div>
+          <div class="progress">
+            <div class="filler"></div>
+            <div class="cursor"></div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="control">
