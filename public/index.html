@@ -60,10 +60,10 @@
     <div class="control">
       <button
         class="loop"
-        :on="mode > 0"
-        @click="onModeChange"
+        :on="loop > 0"
+        @click="onLoopChange"
       >
-        <svg><use :href="mode === 2 ? '#i-single' : '#i-loop'" href="#i-loop" /></svg>
+        <svg><use :href="loop === 2 ? '#i-single' : '#i-loop'" href="#i-loop" /></svg>
       </button>
       <button
         class="previous"

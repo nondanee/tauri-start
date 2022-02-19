@@ -19,7 +19,7 @@ const player = () => ({
     current: NaN,
     total: NaN,
 
-    mode: 0,
+    loop: 0,
     random: false,
 
     queue: [],
@@ -72,8 +72,8 @@ const player = () => ({
     onRandomChange() {
         this.random = !this.random
     },
-    onModeChange() {
-        this.mode = (this.mode + 1) % 3
+    onLoopChange() {
+        this.loop = (this.loop + 1) % 3
     },
 
     onMouseDown(event) {
@@ -161,12 +161,12 @@ const player = () => ({
         }
 
         this.audio.onended = () => {
-            const { mode, index, queue } = this
-            if (mode === 2) {
+            const { loop, index, queue } = this
+            if (loop === 2) {
                 this.audio.currentTime = 0
                 this.audio.play()
             } else {
-                if (mode === 0 && index === queue.length - 1) {
+                if (loop === 0 && index === queue.length - 1) {
                     this.audio.currentTime = 0
                     this.audio.pause()
                 } else {
