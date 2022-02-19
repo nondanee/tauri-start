@@ -90,6 +90,7 @@ const player = () => ({
             }
 
             this.song = song
+            this.total = song.dt
             this.audio.src = url
             // this.audio.play()
         })
@@ -112,7 +113,15 @@ const player = () => ({
 
         this.audio.onpause = () => this.paused = true
         this.audio.onplay = () => this.paused = false
-        this.audio.ontimeupdate = () => this.current = this.audio.currentTime * 1000
+
+        this.audio.ontimeupdate = () => {
+            this.current = this.audio.currentTime * 1000
+        }
+        this.audio.onloadedmetadata = () => {
+            this.current = 0
+            this.total = this.audio.duration * 1000
+        }
+
         this.audio.onended = () => {
             if (this.mode === 2) {
                 this.audio.currentTime = 0
