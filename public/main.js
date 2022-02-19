@@ -5,7 +5,7 @@ const player = {
     name: '',
     extra: '',
 
-    paused: false,
+    paused: true,
 
     current: NaN,
     total: NaN,
@@ -30,6 +30,9 @@ const player = {
     },
     onPause() {
         this.paused = true;
+    },
+    onNext() {
+
     },
     onPrevious() {
 
