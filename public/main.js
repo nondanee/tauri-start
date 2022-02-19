@@ -9,10 +9,13 @@ import {
 import {
     formatDuration,
     shuffle,
+    rgbToHsl,
+    formatHslColor,
 } from './helper.js'
 
 const player = () => ({
     audio: new Audio(),
+    background: '',
 
     playing: false,
 
@@ -130,6 +133,21 @@ const player = () => ({
             const { paused } = this.audio
             this.audio.src = url
             if (!paused) this.audio.play()
+        })
+
+        this.$watch('song', async () => {
+            const image = document.querySelector('img')
+            image.crossOrigin = true
+            if (!image.completed) await new Promise(resolve => image.addEventListener('load', resolve))
+
+            const colorThief = new ColorThief()
+            const [r, g, b] = colorThief.getColor(image)
+            const [h, s, l] = rgbToHsl(r, g, b)
+
+            const start = formatHslColor(h, s, l + 0.1)
+            const end = formatHslColor(h, s, l - 0.2)
+
+            this.background = `linear-gradient(165deg, ${start}, ${start} 60%, ${end})`
         })
 
         this.$watch('random', (value) => {
