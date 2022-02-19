@@ -51,29 +51,29 @@
         :class="mode"
         @click="onModeChange"
       >
-        <svg><use xlink:href="#i-loop" /></svg>
+        <svg><use href="#i-loop" /></svg>
       </button>
       <button
         class="previous"
         @click="onPrevious"
       >
-        <svg><use xlink:href="#i-previous" /></svg>
+        <svg><use href="#i-previous" /></svg>
       </button>
       <button
         class="center"
         @click="paused ? onPlay : onPause"
       >
-        <svg><use xlink:href="paused ? '#i-play' : '#i-pause" /></svg>
+        <svg><use x-bind:href="paused ? '#i-play' : '#i-pause" /></svg>
       </button>
       <button
         class="next"
         @click="onNext">
-        <svg><use xlink:href="#i-next" /></svg>
+        <svg><use href="#i-next" /></svg>
       </button>
       <button
         class="random"
         @click="onRandomChange">
-        <svg><use xlink:href="#i-random" /></svg>
+        <svg><use href="#i-random" /></svg>
       </button>
     </div>
   </div>
