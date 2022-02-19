@@ -109,6 +109,31 @@ img:not([src]) {
   opacity: 0.7;
 }
 
+.progress {
+  position: absolute;
+  width: 100%;
+  bottom: -9px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  --progress: 0;
+}
+
+.progress .before {
+  height: 2px;
+  background-color: #fff;
+  /* width: 0px; */
+  width: calc(var(--progress) * (100% - 12px));
+  flex: none;
+}
+
+.progress .cursor {
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+}
+
 .control {
   flex: none;
   padding: 24px 0;
