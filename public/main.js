@@ -89,8 +89,9 @@ const player = () => ({
 
             this.song = song
             this.total = song.dt
+            const { paused } = this.audio
             this.audio.src = url
-            // this.audio.play()
+            if (!paused) this.audio.play()
         })
 
         this.$watch('random', (value) => {
