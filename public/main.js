@@ -43,6 +43,12 @@ const player = () => ({
         }
     },
 
+    get progress() {
+        const { current, total } = this
+        if (!total) return 0
+        return current / total || 0
+    },
+
     formatDuration,
 
     onPlay() {
