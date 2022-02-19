@@ -28,6 +28,10 @@
   h512v512h-128v-297q-117 56 -211.5 140.5t-161.5 190t-103 227.5t-36 251q0 123 32 237.5t90.5 214t140.5 181.5t181.5 140.5t213.5 90.5t238 32q123 0 237.5 -32t214 -90.5t181.5 -140.5t140.5 -181.5t90.5 -213.5t32 -238q0 -150 -48.5 -289t-135.5 -253t-207.5 -197.5
   t-265.5 -123.5l34 -123v0z"></path>
     </symbol>
+    <symbol xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="-10 0 2068 2048" id="i-single">
+      <path fill="currentColor" d="M1408 308q-29 21 -61 34.5t-67 22.5v-131q56 -19 106.5 -45.5t98.5 -60.5h51v768h-128v-588zM2048 1024q0 141 -36.5 272t-103 245t-160 207.5t-207.5 160t-245 103t-272 36.5t-272 -36.5t-245 -103t-207.5 -160t-160 -207.5t-103 -244.5t-36.5 -272.5q0 -139 36.5 -271
+  t105 -249t166.5 -213t220 -163h-272v-128h512v512h-128v-298q-117 56 -211.5 140.5t-161.5 190.5t-103 228t-36 251q0 123 32 237.5t90.5 214t140.5 181.5t181.5 140.5t213.5 90.5t238 32q123 0 237.5 -32t214 -90.5t181.5 -140.5t140.5 -181.5t90.5 -213.5t32 -238h128z
+  "></path>
   </svg>
 
   <div class="screen" x-data="player">
@@ -48,10 +52,11 @@
     </div>
     <div class="control">
       <button
-        :class="mode"
+        class="loop"
+        :on="mode > 0"
         @click="onModeChange"
       >
-        <svg><use href="#i-loop" /></svg>
+        <svg><use :href="mode === 2 ? '#i-single' : '#i-loop'" href="#i-loop" /></svg>
       </button>
       <button
         class="previous"
@@ -63,7 +68,7 @@
         class="center"
         @click="paused ? onPlay : onPause"
       >
-        <svg><use x-bind:href="paused ? '#i-play' : '#i-pause'" href="#i-play" /></svg>
+        <svg><use :href="paused ? '#i-play' : '#i-pause'" href="#i-play" /></svg>
       </button>
       <button
         class="next"
@@ -72,6 +77,7 @@
       </button>
       <button
         class="random"
+        :on="random"
         @click="onRandomChange">
         <svg><use href="#i-random" /></svg>
       </button>

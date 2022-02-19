@@ -1,4 +1,4 @@
-import Alpine from 'https://unpkg.com/alpinejs/dist/module.esm.js';
+import Alpine from 'https://unpkg.com/alpinejs/dist/module.esm.js'
 
 const player = () => ({
     cover: '',
@@ -21,15 +21,11 @@ const player = () => ({
         return '--:--'
     },
 
-    get mode() {
-        return 'single';
-    },
-    
     onPlay() {
-        this.paused = false;
+        this.paused = false
     },
     onPause() {
-        this.paused = true;
+        this.paused = true
     },
     onNext() {
 
@@ -38,10 +34,10 @@ const player = () => ({
 
     },
     onRandomChange() {
-
+        this.random = !this.random
     },
     onModeChange() {
-
+        this.mode = (this.mode + 1) % 3
     },
 })
 
