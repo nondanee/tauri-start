@@ -4,8 +4,8 @@
     "version": "0.1.0"
   },
   "build": {
-    "distDir": "../dist",
-    "devPath": "http://127.0.0.1:5500/dist",
+    "distDir": "../public",
+    "devPath": "http://127.0.0.1:5500/public",
     "beforeDevCommand": "",
     "beforeBuildCommand": ""
   },
