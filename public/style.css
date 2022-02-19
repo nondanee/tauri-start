@@ -31,6 +31,7 @@ button {
   height: 32px;
   margin: 7px;
   transition: 200ms ease opacity;
+  border-radius: 50%;
 }
 
 .control button:hover {
@@ -45,7 +46,6 @@ button {
   width: 46px;
   height: 46px;
   margin: 0;
-  border-radius: 50%;
 }
 
 .control button svg {
@@ -61,4 +61,8 @@ button {
 .control button:nth-of-type(n+2):nth-last-of-type(n+2) svg {
   width: 18px;
   height: 18px;
+}
+
+.control button[on] {
+  background-color: rgba(255,255,255,0.2);
 }
