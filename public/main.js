@@ -1,4 +1,5 @@
 import Alpine from 'https://unpkg.com/alpinejs/dist/module.esm.js'
+import { appWindow } from 'https://unpkg.com/@tauri-apps/api@1.0.0-rc.1/window.js'
 
 import {
     getPlayListDetail,
