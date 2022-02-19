@@ -77,6 +77,9 @@ const player = () => ({
     },
 
     onMouseDown(event) {
+        const { paused } = this.audio
+        if (!paused) this.audio.pause()
+
         const { currentTarget } = event
         const { x, width } = currentTarget.getBoundingClientRect()
         const cursorWidth = currentTarget.children[1].offsetWidth
@@ -95,6 +98,9 @@ const player = () => ({
             onMouseMove(event)
             document.removeEventListener('mousemove', onMouseMove)
             document.removeEventListener('mouseup', onMouseUp)
+
+            this.audio.currentTime = this.current / 1000
+            if (!paused) this.audio.play()
         }
 
         onMouseMove(event)
