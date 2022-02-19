@@ -76,6 +76,32 @@ const player = () => ({
         this.mode = (this.mode + 1) % 3
     },
 
+    onMouseDown(event) {
+        const { currentTarget } = event
+        const { x, width } = currentTarget.getBoundingClientRect()
+        const cursorWidth = currentTarget.children[1].offsetWidth
+        const cursorOffset = cursorWidth / 2
+
+        const maxMove = width - cursorWidth
+
+        const onMouseMove = (event) => {
+            const { pageX } = event
+            const move = Math.max(0, Math.min(pageX - x - cursorOffset, maxMove))
+            const progress = move / maxMove
+            this.current = progress * this.total
+        }
+
+        const onMouseUp = (event) => {
+            onMouseMove(event)
+            document.removeEventListener('mousemove', onMouseMove)
+            document.removeEventListener('mouseup', onMouseUp)
+        }
+
+        onMouseMove(event)
+        document.addEventListener('mousemove', onMouseMove)
+        document.addEventListener('mouseup', onMouseUp)
+    },
+
     async init() {
         // debug
         window.audio = this.audio

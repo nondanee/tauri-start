@@ -50,7 +50,7 @@
               <div class="total" x-text="formatDuration(total)"></div>
             </div>
           </div>
-          <div class="progress" :style="'--progress:' + progress">
+          <div class="progress" :style="'--progress:' + progress" @mousedown="onMouseDown">
             <div class="before"></div>
             <div class="cursor"></div>
           </div>
