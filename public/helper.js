@@ -67,7 +67,7 @@ const rgbToHsl = (r, g, b) => {
 
 const formatHslColor = (h, s, l) => {
     const hsl = [
-        (h * 360).toFixed(0)
+        (h * 360).toFixed(0),
         (s * 100).toFixed(1) + '%',
         (l * 100).toFixed(1) + '%',
     ]
