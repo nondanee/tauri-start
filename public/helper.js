@@ -41,9 +41,9 @@ const rgbToHsl = (r, g, b) => {
     let h, s, l = (max + min) / 2
 
     if (max === min) {
-        h = s = 0; // achromatic
+        h = s = 0 // achromatic
     } else {
-        const d = max - min;
+        const d = max - min
         s = l > 0.5 ? d / (2 - max - min) : d / (max + min)
         switch (max) {
             case r: {
@@ -59,14 +59,24 @@ const rgbToHsl = (r, g, b) => {
                 break
             }
         }
-        h /= 6;
+        h /= 6
     }
 
-    return [h, s, l];
+    return [h, s, l]
+}
+
+const formatHslColor = (h, s, l) => {
+    const hsl = [
+        (h * 360).toFixed(0)
+        (s * 100).toFixed(1) + '%',
+        (l * 100).toFixed(1) + '%',
+    ]
+    return `hsl(${hsl})`
 }
 
 export {
     formatDuration,
     shuffle,
     rgbToHsl,
+    formatHslColor,
 }
