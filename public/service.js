@@ -39,8 +39,17 @@ const getSongUrl = id => Fetch(
 )
     .then(_ => _.data[0].url)
 
+const getBinaryData = (url) => (
+    http.fetch(url, {
+        method: 'GET',
+        responseType: 3 // Binary
+    })
+        .then(_ => _.data)
+)
+
 export {
     getPlayListDetail,
     getSongDetail,
     getSongUrl,
+    getBinaryData,
 }
