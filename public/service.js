@@ -1,4 +1,4 @@
-const { fetch: tauriFetch } = window.__TAURI__.http
+const { http } = window.__TAURI__ || {}
 
 const stringify = (object) => {
     object = { ...object }
@@ -9,15 +9,17 @@ const stringify = (object) => {
     return pairs.join('&')
 }
 
-const Fetch = async (path, data) => {
-    const result = await tauriFetch(`https://music.163.com${path}`, {
+const Fetch = async (path, data) => (
+    http.fetch(`https://music.163.com${path}`, {
         method: 'POST',
-        body: stringify(data),
-    })  
-        .then(_ => _.json())
-
-    console.log(result);
-}
+        body: http.Body.text(stringify(data)),
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded'
+        },
+        responseType: 1 // JSON
+    })
+        .then(_ => _.data)
+)
 
 const getPlayListDetail = id => Fetch(
     '/api/playlist/detail',
@@ -25,14 +27,16 @@ const getPlayListDetail = id => Fetch(
 )
 
 const getSongDetail = id => Fetch(
-    '/api/song/enhance/player/url',
+    '/api/v3/song/detail',
     { c: JSON.stringify([{ id }]) },
-)
+)   
+    .then(_ => _.songs[0])
 
 const getSongUrl = id => Fetch(
     '/api/song/enhance/player/url',
     { ids: JSON.stringify([id]), br: 999999 },
 )
+    .then(_ => _.data[0].url)
 
 export {
     getPlayListDetail,
