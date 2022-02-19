@@ -1,8 +1,38 @@
 <!DOCTYPE html>
 <html>
+<head>
   <link rel="stylesheet" href="./style.css" />
-  <body>
-    <h1>groove-music-concept-tauri</h1>
-    <script type="module" src="./main.js"></script>
-  </body>
+</head>
+</html>
+<body>
+  <div class="screen" x-data="player">
+    <div class="cover">
+      <img :src="cover">
+      <div class="song">
+        <div class="name" x-text="name"></div>
+        <div class="extra" x-text="extra"></div>
+      </div>
+      <div class="time">
+        <div class="current" x-text="currentText"></div>
+        <div class="total" x-text="totalText"></div>
+      </div>
+      <div class="progress">
+        <div class="filler"></div>
+        <div class="cursor"></div>
+      </div>
+    </div>
+    <div class="control">
+      <button :class="mode" @click="onModeChange"></button>
+      <button class="previous" @click="onPrevious"></button>
+      <button
+        :class="paused ? 'play' : 'pause'"
+        @click="paused ? onPlay : onPause"
+      >
+      </button>
+      <button class="next" @click="onNext"></button>
+      <button class="random off" @click="onRandomChange"></button>
+    </div>
+  </div>
+  <script src="./main.js" type="module"></script>
+</body>
 </html>
