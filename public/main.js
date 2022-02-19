@@ -1,6 +1,6 @@
 import Alpine from 'https://unpkg.com/alpinejs/dist/module.esm.js';
 
-const player = {
+const player = () => ({
     cover: '',
     name: '',
     extra: '',
@@ -43,8 +43,8 @@ const player = {
     onModeChange() {
 
     },
-}
+})
 
-Alpine.data('player', () => player)
+Alpine.data('player', player)
 
 Alpine.start()
