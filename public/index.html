@@ -42,8 +42,8 @@
         <div class="extra" x-text="info.extra"></div>
       </div>
       <div class="time">
-        <div class="current" x-text="currentText"></div>
-        <div class="total" x-text="totalText"></div>
+        <div class="current" x-text="formatDuration(current)"></div>
+        <div class="total" x-text="formatDuration(total)"></div>
       </div>
       <div class="progress">
         <div class="filler"></div>

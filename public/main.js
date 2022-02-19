@@ -6,6 +6,11 @@ import {
     getSongUrl,
 } from './service.js'
 
+import {
+    formatDuration,
+    shuffle,
+} from './helper.js'
+
 const player = () => ({
     audio: new Audio(),
 
@@ -37,13 +42,7 @@ const player = () => ({
         }
     },
 
-    get currentText() {
-        return '--:--'
-    },
-
-    get totalText() {
-        return '--:--'
-    },
+    formatDuration,
 
     onPlay() {
         if (!this.queue.length) return
@@ -96,7 +95,7 @@ const player = () => ({
 
         this.audio.onpause = () => this.paused = true
         this.audio.onplay = () => this.paused = false
-        this.audio.ontimeupdate = () => this.current = this.audio.currentTime
+        this.audio.ontimeupdate = () => this.current = this.audio.currentTime * 1000
         this.audio.onended = () => {
             if (this.mode === 2) {
                 this.audio.currentTime = 0
