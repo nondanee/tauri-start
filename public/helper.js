@@ -4,7 +4,9 @@ const zFill = (string = '', length = 2) => {
     return string
 }
 
-const formatDuration = duration => {
+const formatDuration = (duration) => {
+    if (isNaN(duration)) return '--:--'
+
     const oneSecond = 1e3
     const oneMinute = 60 * oneSecond
     const result = []
