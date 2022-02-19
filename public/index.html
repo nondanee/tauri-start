@@ -36,10 +36,10 @@
 
   <div class="screen" x-data="player">
     <div class="cover">
-      <img :src="cover">
+      <img :src="info.cover">
       <div class="song">
-        <div class="name" x-text="name"></div>
-        <div class="extra" x-text="extra"></div>
+        <div class="name" x-text="info.name"></div>
+        <div class="extra" x-text="info.extra"></div>
       </div>
       <div class="time">
         <div class="current" x-text="currentText"></div>

@@ -9,10 +9,6 @@ import {
 const player = () => ({
     audio: new Audio(),
 
-    cover: '',
-    name: '',
-    extra: '',
-
     paused: true,
 
     current: NaN,
@@ -23,10 +19,22 @@ const player = () => ({
 
     queue: [],
     index: -1,
+    song: null,
 
     get id() {
         if (!this.queue.length) return
         return this.queue[this.index]
+    },
+
+    get info() {
+        if (!this.song) return {}
+        const { name, al, ar } = this.song
+
+        return {
+            cover: (al || {}).picUrl + '?param=320y320',
+            name,
+            extra: (ar || []).map(_ => (_ || {}).name).filter(Boolean).join('/')
+        }
     },
 
     get currentText() {
