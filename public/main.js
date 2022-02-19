@@ -39,11 +39,13 @@ const player = () => ({
 
     onPlay() {
         if (!this.queue.length) return
-        this.paused = false
+        // this.paused = false
+        this.audio.play()
     },
     onPause() {
         if (!this.queue.length) return
-        this.paused = true
+        // this.paused = true
+        this.audio.pause()
     },
     onNext() {
         const { length } = this.queue
@@ -63,6 +65,9 @@ const player = () => ({
     },
 
     async init() {
+        // debug
+        window.audio = this.audio
+
         this.$watch('id', async (id) => {
             if (!id) return
             const [song, url] = await Promise.all([
@@ -80,6 +85,18 @@ const player = () => ({
             this.audio.src = url
             // this.audio.play()
         })
+
+        this.audio.onpause = () => this.paused = true
+        this.audio.onplay = () => this.paused = false
+        this.audio.ontimeupdate = () => this.current = this.audio.currentTime
+        this.audio.onended = () => {
+            if (this.mode === 2) {
+                this.audio.currentTime = 0
+                this.audio.play()
+            } else {
+                this.onNext()
+            }
+        }
 
         const data = await getPlayListDetail(2829896389)
         this.queue = data.trackIds.map(({ id }) => id)
