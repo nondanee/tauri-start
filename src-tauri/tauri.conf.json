@@ -7,7 +7,8 @@
     "distDir": "../public",
     "devPath": "http://127.0.0.1:5500/public",
     "beforeDevCommand": "",
-    "beforeBuildCommand": ""
+    "beforeBuildCommand": "",
+    "withGlobalTauri": true
   },
   "tauri": {
     "bundle": {
@@ -50,7 +51,10 @@
       "active": false
     },
     "allowlist": {
-      "all": true
+      "http": {
+        "all": true,
+        "request": true
+      }
     },
     "windows": [
       {
