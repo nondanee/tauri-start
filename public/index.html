@@ -39,14 +39,16 @@
       <div class="block">
         <svg width="1000" height="1000" />
         <div class="fill">
-          <img class="fill" :src="info.cover">
-          <div class="song">
-            <div class="name" x-text="info.name"></div>
-            <div class="extra" x-text="info.extra"></div>
-          </div>
-          <div class="time">
-            <div class="current" x-text="formatDuration(current)"></div>
-            <div class="total" x-text="formatDuration(total)"></div>
+          <img class="fill cover" :src="info.cover">
+          <div class="bottom">
+            <div class="song">
+              <div class="name ellipsis" x-text="info.name"></div>
+              <div class="extra ellipsis" x-text="info.extra"></div>
+            </div>
+            <div class="time">
+              <div class="current" x-text="formatDuration(current)"></div>
+              <div class="total" x-text="formatDuration(total)"></div>
+            </div>
           </div>
           <div class="progress">
             <div class="filler"></div>
