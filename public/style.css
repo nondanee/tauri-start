@@ -30,6 +30,14 @@ button {
   width: 32px;
   height: 32px;
   margin: 7px;
+  transition: 200ms ease opacity;
+}
+
+.control button:hover {
+  opacity: 0.6;
+}
+.control button:active {
+  opacity: 0.9;
 }
 
 .control button:nth-of-type(3) {
