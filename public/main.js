@@ -161,11 +161,17 @@ const player = () => ({
         }
 
         this.audio.onended = () => {
-            if (this.mode === 2) {
+            const { mode, index, queue } = this
+            if (mode === 2) {
                 this.audio.currentTime = 0
                 this.audio.play()
             } else {
-                this.onNext()
+                if (mode === 0 && index === queue.length - 1) {
+                    this.audio.currentTime = 0
+                    this.audio.pause()
+                } else {
+                    this.onNext()
+                }
             }
         }
 
