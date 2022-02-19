@@ -66,9 +66,9 @@
       </button>
       <button
         class="center"
-        @click="paused ? onPlay : onPause"
+        @click="playing ? onPause : onPlay"
       >
-        <svg><use :href="paused ? '#i-play' : '#i-pause'" href="#i-play" /></svg>
+        <svg><use :href="playing ? '#i-pause' : '#i-play'" href="#i-play" /></svg>
       </button>
       <button
         class="next"

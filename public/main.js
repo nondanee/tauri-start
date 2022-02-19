@@ -14,7 +14,7 @@ import {
 const player = () => ({
     audio: new Audio(),
 
-    paused: true,
+    playing: false,
 
     current: NaN,
     total: NaN,
@@ -47,12 +47,10 @@ const player = () => ({
 
     onPlay() {
         if (!this.queue.length) return
-        // this.paused = false
         this.audio.play()
     },
     onPause() {
         if (!this.queue.length) return
-        // this.paused = true
         this.audio.pause()
     },
     onNext() {
@@ -111,8 +109,9 @@ const player = () => ({
             }
         })
 
-        this.audio.onpause = () => this.paused = true
-        this.audio.onplay = () => this.paused = false
+        this.audio.onabort = () => this.playing = false
+        this.audio.onpause = () => this.playing = false
+        this.audio.onplay = () => this.playing = true
 
         this.audio.ontimeupdate = () => {
             this.current = this.audio.currentTime * 1000
