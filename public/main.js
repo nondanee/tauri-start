@@ -171,6 +171,7 @@ const player = () => ({
         this.audio.onplay = () => this.playing = true
 
         this.audio.ontimeupdate = () => {
+            if (this.audio.paused) return
             this.current = this.audio.currentTime * 1000
         }
         this.audio.onloadedmetadata = () => {

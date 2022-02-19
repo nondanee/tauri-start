@@ -6,6 +6,8 @@ body {
   font-family: "Microsoft JhengHei";
   background-color: black;
   color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 button {
@@ -120,6 +122,7 @@ img:not([src]) {
   height: 18px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   --progress: 0;
 }
 
