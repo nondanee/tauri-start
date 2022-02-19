@@ -1,6 +1,6 @@
 import Alpine from 'https://unpkg.com/alpinejs/dist/module.esm.js';
 
-const player = {    
+const player = {
     cover: '',
     name: '',
     extra: '',
