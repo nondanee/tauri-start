@@ -22,9 +22,10 @@ const Fetch = async (path, data) => (
 )
 
 const getPlayListDetail = id => Fetch(
-    '/api/playlist/detail',
+    '/api/v6/playlist/detail',
     { id, offset: 0, total: true, limit: 1000, n: 1 },
 )
+    .then(_ => _.playlist)
 
 const getSongDetail = id => Fetch(
     '/api/v3/song/detail',
