@@ -23,6 +23,7 @@ const player = () => ({
     random: false,
 
     queue: [],
+    backup: [],
     index: -1,
     song: null,
 
@@ -75,8 +76,8 @@ const player = () => ({
         // debug
         window.audio = this.audio
 
-        this.$watch('id', async (id) => {
-            if (!id) return
+        this.$watch('id', async (id, prev) => {
+            if (!id || id === prev) return
             const [song, url] = await Promise.all([
                 getSongDetail(id),
                 getSongUrl(id),
@@ -91,6 +92,22 @@ const player = () => ({
             this.song = song
             this.audio.src = url
             // this.audio.play()
+        })
+
+        this.$watch('random', (value) => {
+            if (value) {
+                const { id, queue } = this
+                const list = shuffle(queue)
+                const index = list.indexOf(id)
+                this.queue = list
+                this.index = index
+                this.backup = queue
+            } else {
+                const { id, backup } = this
+                const index = backup.indexOf(id)
+                this.queue = backup
+                this.index = index
+            }
         })
 
         this.audio.onpause = () => this.paused = true
