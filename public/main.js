@@ -132,9 +132,9 @@ const Player = () => ({
 
             this.song = song
             this.total = song.dt
-            const { paused } = this.audio
+            const { paused, ended } = this.audio
             this.audio.src = url
-            if (!paused) this.audio.play()
+            if (!paused || ended) this.audio.play()
         })
 
         this.$watch('song', async () => {
