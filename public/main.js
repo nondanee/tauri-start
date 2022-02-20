@@ -44,7 +44,8 @@ const Player = () => ({
         return {
             cover: (al || {}).picUrl + '?param=320y320',
             name,
-            extra: (ar || []).map(_ => (_ || {}).name).filter(Boolean).join('/')
+            album: (al || {}).name,
+            artists: (ar || []).map(_ => (_ || {}).name).filter(Boolean).join('/')
         }
     },
 
@@ -152,6 +153,18 @@ const Player = () => ({
             this.background = `linear-gradient(170deg, ${start}, ${start} 60%, ${end})`
         })
 
+        this.$watch('song', () => {
+            const { cover, name, album, artists } = this.info || {}
+            if (!name) return
+
+            navigator.mediaSession.metadata = new MediaMetadata({
+                title: name,
+                artist: artists,
+                album,
+                artwork: [{ src: cover, sizes: '320x320', type: 'image/jpeg' }],
+            })
+        })
+
         this.$watch('random', (value) => {
             if (value) {
                 const { id, queue } = this
@@ -197,7 +210,7 @@ const Player = () => ({
         }
 
         document.addEventListener('keydown', (event) => {
-            const { key, ctrlKey } = event || {};
+            const { key, ctrlKey } = event || {}
 
             let action
 
