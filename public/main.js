@@ -196,6 +196,25 @@ const Player = () => ({
             }
         }
 
+        document.addEventListener('keydown', (event) => {
+            const { key, ctrlKey } = event || {};
+
+            let action
+
+            if (key === ' ') {
+                action = this.playing
+                    ? this.onPause
+                    : this.onPlay
+            } else if (ctrlKey) {
+                action = {
+                    ArrowLeft: this.onPrevious,
+                    ArrowRight: this.onNext,
+                }[key]
+            }
+
+            if (action) action.call(this)
+        }, false)
+
         const data = await getPlayListDetail(2829896389)
         this.queue = data.trackIds.map(({ id }) => id)
         this.index = 0
