@@ -62,7 +62,7 @@
     },
     "windows": [
       {
-        "title": "",
+        "title": "TAURI",
         "width": 286,
         "height": 380,
         "resizable": false,
