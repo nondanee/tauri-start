@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "groove-music-concept-tauri",
+    "productName": "tauri-start",
     "version": "0.1.0"
   },
   "build": {
@@ -62,7 +62,7 @@
     },
     "windows": [
       {
-        "title": "Groove Music Concept",
+        "title": "",
         "width": 286,
         "height": 380,
         "resizable": false,

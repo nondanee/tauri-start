@@ -1,5 +1,5 @@
 {
-  "name": "groove-music-concept-tauri",
+  "name": "tauri-start",
   "scripts": {
     "tauri": "tauri"
   },
