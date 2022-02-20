@@ -228,6 +228,9 @@ const Player = () => ({
             if (action) action.call(this)
         }, false)
 
+        navigator.mediaSession.setActionHandler('previoustrack', this.onPrevious.bind(this))
+        navigator.mediaSession.setActionHandler('nexttrack', this.onNext.bind(this))
+
         const data = await getPlayListDetail(2829896389)
         this.queue = data.trackIds.map(({ id }) => id)
         this.index = 0
