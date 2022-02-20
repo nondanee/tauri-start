@@ -227,7 +227,10 @@ const Player = () => ({
                 }[key]
             }
 
-            if (action) action.call(this)
+            if (action) {
+                action.call(this)
+                event.preventDefault()
+            }
         }, false)
 
         mediaSession.setActionHandler('previoustrack', this.onPrevious.bind(this))
