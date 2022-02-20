@@ -1,6 +1,6 @@
-import Alpine from 'https://unpkg.com/alpinejs/dist/module.esm.js'
-import { appWindow } from 'https://unpkg.com/@tauri-apps/api@1.0.0-rc.1/window.js'
+import Alpine from 'https://cdn.jsdelivr.net/npm/alpinejs@3.9.0/dist/module.esm.js'
 import ColorThief from 'https://cdn.jsdelivr.net/npm/colorthief@2.3.2/dist/color-thief.mjs'
+import { appWindow } from 'https://cdn.jsdelivr.net/npm/@tauri-apps/api@1.0.0-rc.1/window.js'
 
 import {
     getPlayListDetail,
