@@ -62,6 +62,9 @@ img:not([src]) {
   min-height: 0;
   display: flex;
   justify-content: center;
+
+  background-color: rgba(255,255,255,0.4);
+  box-shadow: 0px 12px 36px 0px rgba(0,0,0,0.2);
 }
 
 .block {
@@ -81,7 +84,7 @@ img:not([src]) {
 
 .block .mask {
   pointer-events: none;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.2) 80%, rgba(0,0,0,0.5));
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.4));
 }
 
 .block .bottom {
@@ -112,9 +115,20 @@ img:not([src]) {
   height: 24px;
   padding: 0px 8px;
   margin-bottom: 6px;
-
-  font-size: 9px;
   opacity: 0.7;
+}
+
+.time span {
+  font-size: 18px;
+  transform: scale(0.5);
+}
+
+.time span:first-of-type {
+  transform-origin: left;
+}
+
+.time span:last-of-type {
+  transform-origin: right;
 }
 
 .progress {
@@ -124,7 +138,7 @@ img:not([src]) {
   height: 18px;
   display: flex;
   align-items: center;
-  cursor: pointer;
+  /* cursor: pointer; */
   --progress: 0;
 }
 

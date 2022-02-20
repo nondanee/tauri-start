@@ -47,8 +47,8 @@
               <div class="extra ellipsis" x-text="info.extra"></div>
             </div>
             <div class="time">
-              <div class="current" x-text="formatDuration(current)"></div>
-              <div class="total" x-text="formatDuration(total)"></div>
+              <span class="current" x-text="formatDuration(current)"></span>
+              <span class="total" x-text="formatDuration(total)"></span>
             </div>
           </div>
           <div class="progress" :style="'--progress:' + progress" @mousedown="onMouseDown">
