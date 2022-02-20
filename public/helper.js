@@ -34,6 +34,7 @@ const shuffle = (list) => {
     return output
 }
 
+// https://stackoverflow.com/a/9493060
 const rgbToHsl = (r, g, b) => {
     r /= 255, g /= 255, b /= 255
     const max = Math.max(r, g, b)
