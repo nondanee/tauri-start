@@ -15,7 +15,7 @@ import {
     formatHslColor,
 } from './helper.js'
 
-const player = () => ({
+const Player = () => ({
     audio: new Audio(),
     background: '',
 
@@ -202,6 +202,6 @@ const player = () => ({
     }
 })
 
-Alpine.data('player', player)
+Alpine.data('player', Player)
 
 Alpine.start()
