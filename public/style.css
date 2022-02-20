@@ -95,15 +95,21 @@ img:not([src]) {
 
 .song {
   text-align: center;
+  font-weight: normal;
 }
 
-.song .name {
+h2,
+h3 {
+  margin: 0;
+}
+
+.song h2 {
   font-size: 14px;
 	margin-bottom: 6px;
 	font-weight: bold;
 }
 
-.song .extra {
+.song h3 {
 	font-size: 12px;
 	opacity: 0.65;
 }
